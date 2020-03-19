@@ -1,9 +1,9 @@
 #include <QList>
 class testBase{
 private:
-    QList<int>testList;
+    QList<int> testList;
 public:
-    QList<int> fill();
+    void fill();
     int max();
     int min();
     int sum();

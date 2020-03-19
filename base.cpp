@@ -1,9 +1,8 @@
 #include "base.h"
 
-QList<int> testBase::fill() {
-    QList<int>assist;
+void testBase::fill() {
     for(int i=0;i<10;i++){
-        assist.push_back(i);
+        testList.push_back(i);
     }
 }
 
@@ -17,8 +16,8 @@ int testBase::min() {
 
 int testBase::sum() {
     int assist=0;
-    for(int i=0;i<testList.length();i++){
-        assist+=testList[i];
+    for(auto it:testList){
+        assist+=it;
     }
     return assist;
 }

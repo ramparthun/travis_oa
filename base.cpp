@@ -17,8 +17,8 @@ int testBase::min() {
 
 int testBase::sum() {
     int assist=0;
-    for(auto it:testList){
-        assist+=it;
+    for(int i=0;i<testList.length();i++){
+        assist+=testList[i];
     }
     return assist;
 }

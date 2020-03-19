@@ -1,0 +1,32 @@
+language: c++
+matrix:
+  include:
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-8
+          env: COMPILER=g++-7.4.0
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-6.0
+          packages:
+            - clang-6.0
+          env: COMPILER=clang++-6.0
+notification:
+  email: false
+befor_install:
+- sudo apt-get update -qq
+install:
+- sudo apt-get install -qq  qt5-default qtbase5-dev lcov
+script:
+- mkdir build && cd build
+- cmake -DCMAKE_CXX_COMPILER=$COMPILER .. && make
+- cd test
+- ./base_test
+- cd ..
